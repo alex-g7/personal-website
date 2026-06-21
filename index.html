@@ -1,26 +1,257 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Alexey Kozlov</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alexey Kozlov | QA Automation & AI Validation</title>
+  <style>
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b1020;
+      color: #e5e7eb;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(11,16,32,.92);
+      border-bottom: 1px solid #1f2937;
+      padding: 18px 9%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      margin-left: 22px;
+      font-size: 14px;
+    }
+    nav a:hover, .brand { color: #22d3ee; }
+    .brand {
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: .5px;
+    }
+    section {
+      padding: 80px 9%;
+    }
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 40px;
+      align-items: center;
+    }
+    h1 {
+      font-size: 56px;
+      line-height: 1.1;
+      margin: 0 0 18px;
+    }
+    h2 {
+      color: #22d3ee;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    h3 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+    .accent { color: #22d3ee; }
+    p {
+      color: #94a3b8;
+      line-height: 1.8;
+      font-size: 17px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 14px 22px;
+      border-radius: 10px;
+      background: linear-gradient(90deg,#0891b2,#7c3aed);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .code-card, .card {
+      background: #111827;
+      border: 1px solid #243041;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    }
+    pre {
+      white-space: pre-wrap;
+      color: #a7f3d0;
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .timeline {
+      max-width: 900px;
+      margin: auto;
+    }
+    .job {
+      margin-bottom: 24px;
+      border-left: 3px solid #22d3ee;
+      padding-left: 22px;
+    }
+    .date {
+      color: #a78bfa;
+      font-size: 14px;
+    }
+    .skills span {
+      display: inline-block;
+      margin: 8px;
+      padding: 10px 14px;
+      background: #111827;
+      border: 1px solid #243041;
+      border-radius: 999px;
+      color: #cbd5e1;
+    }
+    footer {
+      text-align: center;
+      padding: 35px;
+      color: #64748b;
+      border-top: 1px solid #1f2937;
+    }
+    @media(max-width: 850px) {
+      .hero, .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 40px; }
+      nav { flex-direction: column; gap: 14px; }
+      nav a { margin: 0 8px; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Alexey Kozlov</h1>
-    <h2>QA Automation Manager</h2>
 
-    <p>
-        Experienced QA leader specializing in
-        Playwright, Selenium, API Testing,
-        AI Validation, CI/CD and Healthcare Software.
-    </p>
+<nav>
+  <div class="brand">ALEXEY KOZLOV</div>
+  <div>
+    <a href="#about">ABOUT</a>
+    <a href="#experience">EXPERIENCE</a>
+    <a href="#skills">SKILLS</a>
+    <a href="#projects">PROJECTS</a>
+    <a href="#contact">CONTACT</a>
+  </div>
+</nav>
 
-    <h3>Contact</h3>
+<section class="hero">
+  <div>
+    <h1>Hello,<br>This is <span class="accent">Alexey Kozlov</span></h1>
+    <p>I am a QA Automation Manager and Test Automation Architect focused on healthcare software, AI validation, Playwright automation, CI/CD quality gates, and scalable QA processes.</p>
+    <a class="btn" href="#contact">Contact Me</a>
+  </div>
 
-    <p>
-        LinkedIn:
-        <a href="https://www.linkedin.com/in/alexey-k-b14779a8/">
-            LinkedIn Profile
-        </a>
-    </p>
+  <div class="code-card">
+<pre>const qaLeader = {
+  name: "Alexey Kozlov",
+  role: "QA Automation Manager",
+  focus: [
+    "Playwright",
+    "AI Validation",
+    "Healthcare QA",
+    "CI/CD",
+    "Test Strategy"
+  ],
+  leadership: true,
+  automation: true,
+  problemSolver: true,
+  hireable: function() {
+    return this.leadership &&
+           this.automation &&
+           this.problemSolver;
+  }
+};</pre>
+  </div>
+</section>
+
+<section id="about">
+  <h2>ABOUT ME</h2>
+  <h3>Who I am?</h3>
+  <p>I am a QA leader with hands-on automation experience and a strong focus on building reliable validation processes for complex healthcare and enterprise platforms. I work across automation strategy, regression coverage, CI/CD testing, AI validation, release readiness, team leadership, and quality metrics.</p>
+</section>
+
+<section id="experience">
+  <h2>EXPERIENCE</h2>
+  <div class="timeline">
+    <div class="job">
+      <div class="date">Mar 2025 - Present</div>
+      <h3>QA Manager</h3>
+      <p>DocNow / DoctorNow AI. Leading QA strategy, automation validation, healthcare platform testing, AI feature validation, release readiness, and QA team operations.</p>
+    </div>
+    <div class="job">
+      <div class="date">2017 - 2025</div>
+      <h3>QA Automation / Test Engineering</h3>
+      <p>Enterprise software validation with experience across automation frameworks, API testing, regression planning, release testing, and CI/CD quality gates.</p>
+    </div>
+    <div class="job">
+      <div class="date">Previous Experience</div>
+      <h3>Cloud Testing & Validation</h3>
+      <p>Worked with engineering teams on cloud testing, software validation, automation strategy, and quality process improvements.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>SKILLS</h2>
+  <div class="skills">
+    <span>Playwright</span>
+    <span>Selenium</span>
+    <span>JavaScript</span>
+    <span>TypeScript</span>
+    <span>Python</span>
+    <span>API Testing</span>
+    <span>CI/CD</span>
+    <span>GitHub Actions</span>
+    <span>BrowserStack</span>
+    <span>Testmo</span>
+    <span>Vertex AI</span>
+    <span>AI Validation</span>
+    <span>Healthcare QA</span>
+    <span>Release Validation</span>
+    <span>Team Leadership</span>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>PROJECTS</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>AI Release Notes Automation</h3>
+      <p>Automated workflow concept for generating customer-facing release notes using commits, screenshots, videos, QA validation, and publishing tools.</p>
+    </div>
+    <div class="card">
+      <h3>Playwright Automation Framework</h3>
+      <p>Reliable UI automation strategy using reusable login helpers, role-based selectors, deterministic waits, assertions, and CI integration.</p>
+    </div>
+    <div class="card">
+      <h3>Healthcare Regression Strategy</h3>
+      <p>Structured regression coverage across healthcare modules, release validation, defect tracking, and QA readiness reporting.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>CONTACT</h2>
+  <h3>Contact with me</h3>
+  <p>I am open to QA Automation, Test Architect, AI Validation, and QA Leadership opportunities.</p>
+  <p>Email: alexeymspm@gmail.com</p>
+  <p>GitHub: github.com/alexeykozlov1</p>
+</section>
+
+<footer>
+  © 2026 Alexey Kozlov. Personal portfolio.
+</footer>
 
 </body>
 </html>
