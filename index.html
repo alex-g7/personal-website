@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alex Grant | Quality Assurance Manager & AI Automation Lead</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="Gerege.png">
 
   <style>
     *{box-sizing:border-box;scroll-behavior:smooth}
@@ -12,7 +14,8 @@
     @keyframes floatBg{from{transform:translateY(0)}to{transform:translateY(-30px)}}
 
     nav{position:sticky;top:0;z-index:10;background:rgba(5,8,22,.88);backdrop-filter:blur(12px);border-bottom:1px solid #1f2937;padding:18px 9%;display:flex;justify-content:space-between;align-items:center}
-    .brand{color:#22d3ee;font-weight:700;font-size:20px}
+    .brand{color:#22d3ee;font-weight:700;font-size:20px;display:flex;align-items:center;gap:10px}
+    .brand-icon{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid rgba(196,146,10,.6);box-shadow:0 0 12px rgba(196,146,10,.35)}
     nav a{color:#cbd5e1;text-decoration:none;margin-left:20px;font-size:14px}
     nav a:hover{color:#22d3ee}
 
@@ -115,6 +118,18 @@
       nav a{margin:0 8px}
       .job-head{align-items:flex-start}
     }
+    @media(max-width:768px){
+      .job-toggle{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.25);cursor:pointer;flex-shrink:0;margin-left:auto;transition:.25s;padding:0}
+      .job-toggle.open{background:rgba(34,211,238,.18);border-color:#22d3ee}
+      .toggle-arrow{transition:transform .35s ease;display:block}
+      .job-toggle.open .toggle-arrow{transform:rotate(180deg)}
+      #experience .job-card>ul,#experience .job-card>.tech-tags,#experience .job-card>p{display:none}
+      #experience .job-card.open>ul,#experience .job-card.open>p{display:block}
+      #experience .job-card.open>.tech-tags{display:flex}
+      .job-head h3{font-size:16px}
+      .company-logo,.company-logo-svg{width:52px;height:52px}
+    }
+    @media(min-width:769px){.job-toggle{display:none!important}}
   </style>
 </head>
 
@@ -122,7 +137,7 @@
 <div class="particles"></div>
 
 <nav>
-  <div class="brand">ALEX GRANT</div>
+  <div class="brand"><img class="brand-icon" src="Gerege.png" alt="AG">ALEX GRANT</div>
   <div>
     <a href="#about">ABOUT</a>
     <a href="#experience">EXPERIENCE</a>
@@ -244,6 +259,7 @@
       <div class="job-head">
         <img class="company-logo" src="https://docnow.ai/images/logo.svg" onerror="this.onerror=null;this.style.display='none';this.insertAdjacentHTML('afterend','<div class=company-logo-svg><svg viewBox=\'0 0 56 56\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'28\' cy=\'28\' r=\'26\' fill=\'#1B4B9B\'/><text x=\'28\' y=\'38\' text-anchor=\'middle\' font-family=\'Arial\' font-weight=\'900\' font-size=\'28\' fill=\'white\'>D</text></svg></div>')" alt="DocNow.ai logo">
         <h3>Quality Assurance Manager / AI Automation Lead | DocNow.ai | 2025–Present</h3>
+        <button class="job-toggle" onclick="toggleJob(this)" aria-label="Toggle"><svg class="toggle-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="2,4 7,10 12,4" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
       <ul>
         <li>Lead a distributed QA organization supporting healthcare SaaS products, AI driven clinical applications, and enterprise release management activities</li>
@@ -269,6 +285,7 @@
       <div class="job-head">
         <div class="company-logo-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 42"><text x="4" y="32" font-family="Arial,sans-serif" font-weight="900" font-size="28" fill="#2454FF">Stride</text><rect x="4" y="36" width="72" height="4" rx="2" fill="#2454FF" opacity="0.3"/></svg></div>
         <h3>Principal Quality Assurance Engineer | Stride Inc | 2023–2025</h3>
+        <button class="job-toggle" onclick="toggleJob(this)" aria-label="Toggle"><svg class="toggle-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="2,4 7,10 12,4" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
       <ul>
         <li>Spearheaded Quality Assurance transformation initiatives for large scale education technology platforms supporting thousands of users</li>
@@ -289,6 +306,7 @@
       <div class="job-head">
         <img class="company-logo" src="https://cdn.theorg.com/26bfac2e-f2f4-45f2-9cf3-b786257822ee_thumb.jpg" onerror="this.onerror=null;this.style.display='none';this.insertAdjacentHTML('afterend','<div class=company-logo-svg><svg viewBox=\'0 0 56 56\' xmlns=\'http://www.w3.org/2000/svg\'><rect width=\'56\' height=\'56\' rx=\'8\' fill=\'#0d9488\'/><text x=\'28\' y=\'38\' text-anchor=\'middle\' font-family=\'Arial\' font-weight=\'900\' font-size=\'28\' fill=\'white\'>B</text></svg></div>')" alt="Bravado Health logo">
         <h3>Lead Software Quality Assurance Engineer | Bravado Health | 2021–2023</h3>
+        <button class="job-toggle" onclick="toggleJob(this)" aria-label="Toggle"><svg class="toggle-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="2,4 7,10 12,4" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
       <ul>
         <li>Managed Quality Assurance operations for cloud based healthcare and patient management platforms</li>
@@ -309,6 +327,7 @@
       <div class="job-head">
         <div class="company-logo-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56"><circle cx="28" cy="18" r="12" fill="#1C7F35" opacity="0.75"/><circle cx="18" cy="30" r="12" fill="#1C7F35" opacity="0.75"/><circle cx="38" cy="30" r="12" fill="#1C7F35" opacity="0.75"/><rect x="25" y="36" width="6" height="14" rx="2" fill="#1C7F35"/><text x="28" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="#1C7F35" font-weight="700">mindtree</text></svg></div>
         <h3>Senior QA Consultant | Mindtree Ltd. | 2017–2025</h3>
+        <button class="job-toggle" onclick="toggleJob(this)" aria-label="Toggle"><svg class="toggle-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="2,4 7,10 12,4" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
       <p style="color:#94a3b8;margin-bottom:10px"><strong style="color:#22d3ee">Client engagements:</strong> Southwest Airlines · Delta Air Lines · Toyota Connected · Equifax · Tower Hill Insurance</p>
       <ul>
@@ -422,6 +441,7 @@
 
 <script>
 function imgErr(el){var t=el.alt;el.outerHTML='<span class="company-name">'+t+'</span>'}
+function toggleJob(btn){var c=btn.closest('.job-card');c.classList.toggle('open');btn.classList.toggle('open')}
 </script>
 </body>
 </html>
