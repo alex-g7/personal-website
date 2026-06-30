@@ -16,38 +16,95 @@
     nav a{color:#cbd5e1;text-decoration:none;margin-left:20px;font-size:14px}
     nav a:hover{color:#22d3ee}
 
-    section{padding:80px 9%}
+    section{padding:52px 9%}
     .hero{min-height:88vh;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
     h1{font-size:56px;line-height:1.1;margin:0 0 18px}
     h2{color:#22d3ee;text-transform:uppercase;letter-spacing:2px;font-size:18px;margin-bottom:25px}
     h3{font-size:24px;margin-bottom:10px}
     p,li{color:#94a3b8;line-height:1.75;font-size:16px}
-    .accent{color:#22d3ee}
+    .accent{background:linear-gradient(90deg,#22d3ee,#a78bfa,#22d3ee);background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 5s linear infinite}
+    @keyframes shimmer{to{background-position:200% center}}
 
-    .btn{display:inline-block;margin-top:22px;margin-right:12px;padding:14px 22px;border-radius:10px;background:linear-gradient(90deg,#0891b2,#7c3aed);color:white;text-decoration:none;font-weight:700}
-    .btn-outline{background:transparent;border:1px solid #22d3ee;color:#22d3ee}
+    .hero-greeting{font-size:20px;color:#94a3b8;margin:0 0 4px;font-weight:500;letter-spacing:.3px}
+    .hero-role{font-size:19px;color:#cbd5e1;margin:4px 0 20px;font-weight:500;letter-spacing:.2px}
+    .hero h1{margin:0}
+    .status-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.28);color:#22d3ee;padding:7px 18px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:20px;letter-spacing:.4px}
+    .status-dot{width:8px;height:8px;background:#22d3ee;border-radius:50%;flex-shrink:0;animation:statusPulse 2s ease-in-out infinite}
+    @keyframes statusPulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(34,211,238,.5)}60%{opacity:.7;box-shadow:0 0 0 7px rgba(34,211,238,0)}}
 
-    .hero-photo{display:flex;justify-content:center}
-    .hero-photo img{width:340px;height:340px;object-fit:cover;border-radius:50%;border:4px solid #22d3ee;box-shadow:0 20px 80px rgba(34,211,238,.28)}
+    .role-strip{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 24px}
+    .role-tag{background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.22);color:#a78bfa;padding:5px 14px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
 
-    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+    .btn{display:inline-block;margin-top:22px;margin-right:12px;padding:14px 26px;border-radius:10px;background:linear-gradient(90deg,#0891b2,#7c3aed);color:white;text-decoration:none;font-weight:700;transition:.25s;box-shadow:0 4px 24px rgba(8,145,178,.3)}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(8,145,178,.45)}
+    .btn-outline{background:transparent;border:1px solid #22d3ee;color:#22d3ee;box-shadow:none}
+    .btn-outline:hover{background:rgba(34,211,238,.08);box-shadow:0 0 20px rgba(34,211,238,.2)}
+
+    .hero-photo{position:relative;display:flex;justify-content:center;align-items:center;min-height:560px}
+    .photo-glow{position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(34,211,238,.22) 0%,rgba(124,58,237,.14) 45%,transparent 70%);animation:glowPulse 5s ease-in-out infinite alternate;pointer-events:none;z-index:0}
+    @keyframes glowPulse{from{transform:scale(.88);opacity:.7}to{transform:scale(1.08);opacity:1}}
+    .hero-photo img{width:340px;height:340px;object-fit:cover;border-radius:50%;border:4px solid #22d3ee;box-shadow:0 20px 80px rgba(34,211,238,.3);position:relative;z-index:2}
+
+    /* Orbital rings */
+    .deco-ring{position:absolute;border-radius:50%;pointer-events:none;z-index:1}
+    .dr-1{width:420px;height:420px;border:1.5px dashed rgba(34,211,238,.22);animation:spinCW 32s linear infinite}
+    .dr-2{width:518px;height:518px;border:1px solid rgba(124,58,237,.18);animation:spinCCW 55s linear infinite}
+    @keyframes spinCW{to{transform:rotate(360deg)}}
+    @keyframes spinCCW{to{transform:rotate(-360deg)}}
+
+    /* Glowing node dots on rings */
+    .ring-node{position:absolute;border-radius:50%;left:50%;top:50%}
+    .dr-1 .ring-node{width:9px;height:9px;margin:-4.5px;background:#22d3ee;box-shadow:0 0 12px rgba(34,211,238,.95)}
+    .rn-n{transform:translateY(-210px)}
+    .rn-e{transform:translateX(210px)}
+    .rn-s{transform:translateY(210px)}
+    .rn-w{transform:translateX(-210px)}
+    .dr-2 .ring-node{width:7px;height:7px;margin:-3.5px;background:#7c3aed;box-shadow:0 0 12px rgba(124,58,237,.95)}
+    .rn-ne{transform:translate(183px,-183px)}
+    .rn-se{transform:translate(183px,183px)}
+    .rn-sw{transform:translate(-183px,183px)}
+    .rn-nw{transform:translate(-183px,-183px)}
+
+    /* Floating tech badges */
+    .hb-pos{position:absolute;z-index:4;pointer-events:none}
+    .hbadge{display:flex;align-items:center;gap:8px;background:rgba(5,8,22,.9);border:1px solid rgba(34,211,238,.3);color:#e2e8f0;padding:7px 15px;border-radius:10px;font-size:12px;font-weight:700;letter-spacing:.4px;white-space:nowrap;backdrop-filter:blur(14px);box-shadow:0 6px 28px rgba(0,0,0,.45);animation:floatUpDown 3.6s ease-in-out infinite alternate}
+    .hbadge.hb-p{border-color:rgba(124,58,237,.35)}
+    @keyframes floatUpDown{from{transform:translateY(0)}to{transform:translateY(-9px)}}
+    .hbadge-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;background:#22d3ee;box-shadow:0 0 8px rgba(34,211,238,.9)}
+    .hbadge-dot.dp{background:#a78bfa;box-shadow:0 0 8px rgba(167,139,250,.9)}
+
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:38px}
     .stat-card,.job-card,.tool-card{background:rgba(17,24,39,.86);border:1px solid #243041;border-radius:18px;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.25)}
-    .stat-card h3{color:#22d3ee;font-size:34px;margin:0}
+    .stat-card{transition:.3s;cursor:default}
+    .stat-card:hover{border-color:#22d3ee;transform:translateY(-4px);box-shadow:0 24px 60px rgba(34,211,238,.12)}
+    .stat-card h3{color:#22d3ee;font-size:34px;margin:8px 0 6px}
+    .stat-icon{display:block;margin-bottom:4px}
 
     .company-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:18px;margin-top:30px}
     .company-mini{background:rgba(17,24,39,.86);border:1px solid #243041;border-radius:18px;padding:18px;display:flex;align-items:center;justify-content:center;min-height:95px}
     .company-mini img{max-width:92px;max-height:55px;object-fit:contain}
+    .company-mini svg{max-width:110px;max-height:55px}
+    .company-mini .company-name{color:#cbd5e1;font-size:11px;font-weight:700;letter-spacing:.6px;text-align:center;line-height:1.4;padding:0 6px}
 
     .timeline{max-width:1150px}
     .job-card{margin-bottom:26px;border-left:4px solid #22d3ee}
     .job-head{display:flex;align-items:center;gap:16px;margin-bottom:10px}
     .company-logo{width:72px;height:72px;border-radius:14px;background:white;object-fit:contain;padding:8px;flex-shrink:0}
+    .company-logo-svg{width:72px;height:72px;border-radius:14px;background:white;padding:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .edu-item{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+    .edu-item:last-child{margin-bottom:0}
+    .edu-logo{width:52px;height:52px;border-radius:12px;flex-shrink:0}
+    .edu-text strong{display:block;color:white;font-size:15px;font-weight:600}
+    .edu-text span{color:#94a3b8;font-size:14px}
 
     .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:20px}
     .tool-card{text-align:center;transition:.3s}
     .tool-card:hover{transform:translateY(-5px);border-color:#22d3ee}
     .tool-card img{width:64px;height:64px;object-fit:contain;margin-bottom:12px}
+    .tool-card svg{width:64px;height:64px;margin-bottom:12px;display:block;margin-left:auto;margin-right:auto}
     .tool-card span{display:block;color:white;font-size:14px}
+    .tech-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;padding-top:14px;border-top:1px solid #1f2937}
+    .tech-tag{background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.25);color:#22d3ee;padding:4px 11px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:.3px}
 
     footer{text-align:center;padding:35px;color:#64748b;border-top:1px solid #1f2937}
 
@@ -77,21 +134,86 @@
 
 <section class="hero">
   <div>
-    <h1>Hello,<br>This is <span class="accent">Alex Grant</span></h1>
-    <p>Quality Engineering Leader, Quality Assurance Automation Manager, and AI Automation Lead with 10+ years of experience leading software quality initiatives across healthcare, aviation, finance, and education technology platforms.</p>
+    <div class="status-badge"><span class="status-dot"></span> Open to New Opportunities</div>
+    <p class="hero-greeting">Hi, I'm</p>
+    <h1><span class="accent">Alex Grant</span></h1>
+    <p class="hero-role">Quality Engineering Leader &amp; AI Automation Lead</p>
+    <p>10+ years driving software quality across healthcare, aviation, finance, and education — building AI-powered automation frameworks, LLM evaluation pipelines, and scalable QA organizations that ship with confidence.</p>
 
-    <a class="btn" href="resume.pdf" target="_blank">Resume</a>
-    <a class="btn btn-outline" href="https://www.linkedin.com/in/alexey-k-b14779a8/" target="_blank">LinkedIn</a>
-    <a class="btn btn-outline" href="https://github.com/alexeykozlov1" target="_blank">GitHub</a>
+    <div class="role-strip">
+      <span class="role-tag">QA Engineering</span>
+      <span class="role-tag">AI Automation</span>
+      <span class="role-tag">LLM Evaluation</span>
+      <span class="role-tag">Healthcare Tech</span>
+      <span class="role-tag">Release Governance</span>
+    </div>
+
+    <a class="btn" href="Alex_Grant_Resume.pdf" target="_blank">Resume</a>
+    <a class="btn btn-outline" href="https://www.linkedin.com/in/alex-g-b14779a8/" target="_blank">LinkedIn</a>
+    <a class="btn btn-outline" href="https://github.com/alex-g7" target="_blank">GitHub</a>
 
     <div class="stats">
-      <div class="stat-card"><h3>10+</h3><p>Years in Quality Engineering</p></div>
-      <div class="stat-card"><h3>AI</h3><p>Automation & LLM Evaluation</p></div>
-      <div class="stat-card"><h3>QA</h3><p>Leadership & Release Governance</p></div>
+      <div class="stat-card">
+        <svg class="stat-icon" width="26" height="26" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg"><path d="M13 2 L15.5 8.5 L22 8.5 L17 12.5 L19 19 L13 15.5 L7 19 L9 12.5 L4 8.5 L10.5 8.5 Z" fill="rgba(34,211,238,.15)" stroke="#22d3ee" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        <h3>10+</h3><p>Years in Quality Engineering</p>
+      </div>
+      <div class="stat-card">
+        <svg class="stat-icon" width="26" height="26" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg"><rect x="7" y="7" width="12" height="12" rx="2" fill="rgba(34,211,238,.12)" stroke="#22d3ee" stroke-width="1.5"/><rect x="10" y="10" width="6" height="6" fill="rgba(34,211,238,.3)"/><line x1="10" y1="7" x2="10" y2="4" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="7" x2="13" y2="4" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="7" x2="16" y2="4" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="19" x2="10" y2="22" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="19" x2="13" y2="22" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="19" x2="16" y2="22" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="10" x2="4" y2="10" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="13" x2="4" y2="13" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="16" x2="4" y2="16" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round"/><line x1="19" y1="10" x2="22" y2="10" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round"/><line x1="19" y1="13" x2="22" y2="13" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round"/><line x1="19" y1="16" x2="22" y2="16" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <h3>AI</h3><p>Automation & LLM Evaluation</p>
+      </div>
+      <div class="stat-card">
+        <svg class="stat-icon" width="26" height="26" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg"><path d="M13 2 L21 5.5 L21 12 C21 17.5 17 21.5 13 23.5 C9 21.5 5 17.5 5 12 L5 5.5 Z" fill="rgba(34,211,238,.12)" stroke="#22d3ee" stroke-width="1.5" stroke-linejoin="round"/><polyline points="9,13 12,16 17,10" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>QA</h3><p>Leadership & Release Governance</p>
+      </div>
     </div>
   </div>
 
   <div class="hero-photo">
+    <!-- Orbital ring 1 — cyan dashed, CW -->
+    <div class="deco-ring dr-1">
+      <div class="ring-node rn-n"></div>
+      <div class="ring-node rn-e"></div>
+      <div class="ring-node rn-s"></div>
+      <div class="ring-node rn-w"></div>
+    </div>
+    <!-- Orbital ring 2 — purple solid, CCW -->
+    <div class="deco-ring dr-2">
+      <div class="ring-node rn-ne"></div>
+      <div class="ring-node rn-se"></div>
+      <div class="ring-node rn-sw"></div>
+      <div class="ring-node rn-nw"></div>
+    </div>
+
+    <!-- Floating tech badges -->
+    <div class="hb-pos" style="top:4%;left:50%;transform:translateX(-50%)">
+      <div class="hbadge" style="animation-delay:0s"><span class="hbadge-dot"></span>Playwright</div>
+    </div>
+    <div class="hb-pos" style="top:17%;right:2%">
+      <div class="hbadge" style="animation-delay:.55s"><span class="hbadge-dot"></span>Python</div>
+    </div>
+    <div class="hb-pos" style="top:8%;right:16%">
+      <div class="hbadge hb-p" style="animation-delay:.2s"><span class="hbadge-dot dp"></span>Claude</div>
+    </div>
+    <div class="hb-pos" style="top:46%;right:0">
+      <div class="hbadge hb-p" style="animation-delay:1.1s"><span class="hbadge-dot dp"></span>AI Agents</div>
+    </div>
+    <div class="hb-pos" style="top:46%;left:0">
+      <div class="hbadge" style="animation-delay:.7s"><span class="hbadge-dot"></span>TypeScript</div>
+    </div>
+    <div class="hb-pos" style="bottom:14%;right:2%">
+      <div class="hbadge hb-p" style="animation-delay:1.65s"><span class="hbadge-dot dp"></span>LLM Eval</div>
+    </div>
+    <div class="hb-pos" style="bottom:4%;left:50%;transform:translateX(-50%)">
+      <div class="hbadge" style="animation-delay:.9s"><span class="hbadge-dot"></span>RAGAS</div>
+    </div>
+    <div class="hb-pos" style="bottom:14%;left:2%">
+      <div class="hbadge hb-p" style="animation-delay:.35s"><span class="hbadge-dot dp"></span>AWS</div>
+    </div>
+    <div class="hb-pos" style="top:17%;left:2%">
+      <div class="hbadge" style="animation-delay:1.25s"><span class="hbadge-dot"></span>OpenAI</div>
+    </div>
+
+    <div class="photo-glow"></div>
     <img src="profile.jpg" alt="Alex Grant">
   </div>
 </section>
@@ -102,13 +224,14 @@
   <p>Proven track record of scaling Quality Assurance organizations, reducing regression effort through automation, improving release quality, and accelerating delivery through CI/CD and AI driven testing strategies. Experienced managing distributed QA teams, driving enterprise release readiness, implementing automation frameworks, AI quality engineering practices, RAG evaluation frameworks, and autonomous AI agent technologies to improve engineering efficiency and business outcomes.</p>
 
   <div class="company-strip">
-    <div class="company-mini"><img src="https://docnow.ai/images/logo.svg" alt="DocNow"></div>
-    <div class="company-mini"><img src="https://www.southwest.com/swa-resources/images/globalnav/logos/swa_logo_dark.svg" alt="Southwest Airlines"></div>
-    <div class="company-mini"><img src="https://logo.clearbit.com/stridelearning.com" alt="Stride"></div>
-    <div class="company-mini"><img src="https://cdn.theorg.com/26bfac2e-f2f4-45f2-9cf3-b786257822ee_thumb.jpg" alt="Bravado Health"></div>
-    <div class="company-mini"><img src="https://assets.equifax.com/landers/images/EFX_header_logo.png" alt="Equifax"></div>
-    <div class="company-mini"><img src="https://www.delta.com/content/dam/delta_homepage_redesign/Logo/Delta-Logo.svg" alt="Delta Air Lines"></div>
-    <div class="company-mini"><img src="https://logo.clearbit.com/northeastern.edu" alt="Northeastern University"></div>
+    <div class="company-mini"><img src="https://docnow.ai/images/logo.svg" onerror="imgErr(this)" alt="DocNow"></div>
+    <div class="company-mini"><img src="https://www.southwest.com/swa-resources/images/globalnav/logos/swa_logo_dark.svg" onerror="imgErr(this)" alt="Southwest Airlines"></div>
+    <div class="company-mini"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 45"><text x="4" y="34" font-family="Arial,sans-serif" font-weight="900" font-size="32" fill="#2454FF">Stride</text><rect x="4" y="38" width="100" height="4" rx="2" fill="#2454FF" opacity="0.35"/></svg></div>
+    <div class="company-mini"><img src="https://cdn.theorg.com/26bfac2e-f2f4-45f2-9cf3-b786257822ee_thumb.jpg" onerror="imgErr(this)" alt="Bravado Health"></div>
+    <div class="company-mini"><img src="https://assets.equifax.com/landers/images/EFX_header_logo.png" onerror="imgErr(this)" alt="Equifax"></div>
+    <div class="company-mini"><img src="https://www.delta.com/content/dam/delta_homepage_redesign/Logo/Delta-Logo.svg" onerror="imgErr(this)" alt="Delta Air Lines"></div>
+    <div class="company-mini"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 70"><ellipse cx="55" cy="22" rx="46" ry="19" fill="none" stroke="#EB0A1E" stroke-width="3"/><ellipse cx="55" cy="22" rx="18" ry="19" fill="none" stroke="#EB0A1E" stroke-width="3"/><ellipse cx="55" cy="22" rx="29" ry="9" fill="none" stroke="#EB0A1E" stroke-width="3"/><text x="55" y="52" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="10" fill="white">Toyota</text><text x="55" y="64" text-anchor="middle" font-family="Arial,sans-serif" font-weight="400" font-size="9" fill="#94a3b8">Connected</text></svg></div>
+    <div class="company-mini"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 50"><rect x="4" y="28" width="22" height="18" rx="2" fill="#1E40AF"/><rect x="8" y="20" width="14" height="12" rx="1" fill="#1E40AF"/><rect x="12" y="13" width="6" height="10" rx="1" fill="#1E40AF"/><polygon points="15,6 21,13 9,13" fill="#1E40AF"/><rect x="8" y="32" width="5" height="7" rx="1" fill="white"/><rect x="17" y="32" width="5" height="7" rx="1" fill="white"/><text x="33" y="24" font-family="Arial,sans-serif" font-weight="700" font-size="9" fill="white">Tower Hill</text><text x="33" y="38" font-family="Arial,sans-serif" font-weight="400" font-size="9" fill="#93c5fd">Insurance</text></svg></div>
   </div>
 </section>
 
@@ -119,8 +242,8 @@
 
     <div class="job-card">
       <div class="job-head">
-        <img class="company-logo" src="https://docnow.ai/images/logo.svg" alt="DocNow.ai logo">
-        <h3>Quality Assurance Manager / AI Automation Lead | DocNow.ai</h3>
+        <img class="company-logo" src="https://docnow.ai/images/logo.svg" onerror="this.onerror=null;this.style.display='none';this.insertAdjacentHTML('afterend','<div class=company-logo-svg><svg viewBox=\'0 0 56 56\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'28\' cy=\'28\' r=\'26\' fill=\'#1B4B9B\'/><text x=\'28\' y=\'38\' text-anchor=\'middle\' font-family=\'Arial\' font-weight=\'900\' font-size=\'28\' fill=\'white\'>D</text></svg></div>')" alt="DocNow.ai logo">
+        <h3>Quality Assurance Manager / AI Automation Lead | DocNow.ai | 2025–Present</h3>
       </div>
       <ul>
         <li>Lead a distributed QA organization supporting healthcare SaaS products, AI driven clinical applications, and enterprise release management activities</li>
@@ -137,29 +260,15 @@
         <li>Implemented advanced agent orchestration patterns including SelectorGroupChat and MultimodalWebSurfer for intelligent web navigation and task execution</li>
         <li>Provided executive level quality reporting, release readiness assessments, and risk analysis to leadership teams</li>
       </ul>
-    </div>
-
-    <div class="job-card">
-      <div class="job-head">
-        <img class="company-logo" src="https://www.southwest.com/swa-resources/images/globalnav/logos/swa_logo_dark.svg" alt="Southwest Airlines logo">
-        <h3>Lead Quality Assurance Automation Engineer | Southwest Airlines</h3>
+      <div class="tech-tags">
+        <span class="tech-tag">Playwright</span><span class="tech-tag">Python</span><span class="tech-tag">PyTest</span><span class="tech-tag">OpenAI</span><span class="tech-tag">LangChain</span><span class="tech-tag">RAGAS</span><span class="tech-tag">MCP</span><span class="tech-tag">AI Agents</span><span class="tech-tag">AutoGen</span><span class="tech-tag">LLM Evaluation</span><span class="tech-tag">Jira</span><span class="tech-tag">Confluence</span>
       </div>
-      <ul>
-        <li>Directed QA initiatives for pilot training and aviation simulation platforms supporting enterprise airline operations and multiple Agile delivery teams</li>
-        <li>Reduced manual test design effort by approximately 40% through implementation of AI assisted testing workflows and intelligent validation strategies</li>
-        <li>Scaled Playwright and API automation frameworks supporting complex simulation workflows, reducing regression execution time by more than 60%</li>
-        <li>Accelerated deployment readiness and reduced release risks through automated validation integrated into CI/CD pipelines</li>
-        <li>Coordinated testing activities, defect prioritization, and release readiness across multiple Agile teams</li>
-        <li>Managed QA planning, sprint testing priorities, and automation efforts for mission critical aviation systems</li>
-        <li>Mentored QA engineers on automation frameworks, quality engineering standards, and AI assisted testing practices</li>
-        <li>Delivered executive level quality metrics, release readiness reporting, and risk assessments supporting production deployment decisions</li>
-      </ul>
     </div>
 
     <div class="job-card">
       <div class="job-head">
-        <img class="company-logo" src="https://logo.clearbit.com/stridelearning.com" alt="Stride logo">
-        <h3>Principal Quality Assurance Engineer | Stride Inc</h3>
+        <div class="company-logo-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 42"><text x="4" y="32" font-family="Arial,sans-serif" font-weight="900" font-size="28" fill="#2454FF">Stride</text><rect x="4" y="36" width="72" height="4" rx="2" fill="#2454FF" opacity="0.3"/></svg></div>
+        <h3>Principal Quality Assurance Engineer | Stride Inc | 2023–2025</h3>
       </div>
       <ul>
         <li>Spearheaded Quality Assurance transformation initiatives for large scale education technology platforms supporting thousands of users</li>
@@ -169,13 +278,17 @@
         <li>Guided QA engineers on framework development, automation strategy, and quality engineering best practices</li>
         <li>Collaborated with Product, Engineering, and DevOps leadership to align quality strategy with business objectives</li>
         <li>Increased defect detection rates through risk based testing methodologies and automation expansion</li>
+        <li>Designed and executed database testing strategies for Snowflake data warehouse environments, validating data pipelines, transformations, and reporting accuracy</li>
       </ul>
+      <div class="tech-tags">
+        <span class="tech-tag">Playwright</span><span class="tech-tag">TypeScript</span><span class="tech-tag">JavaScript</span><span class="tech-tag">GitHub Actions</span><span class="tech-tag">CI/CD</span><span class="tech-tag">Snowflake</span><span class="tech-tag">Database Testing</span><span class="tech-tag">Testmo</span><span class="tech-tag">Jira</span>
+      </div>
     </div>
 
     <div class="job-card">
       <div class="job-head">
-        <img class="company-logo" src="https://cdn.theorg.com/26bfac2e-f2f4-45f2-9cf3-b786257822ee_thumb.jpg" alt="Bravado Health logo">
-        <h3>Lead Software Quality Assurance Engineer | Bravado Health</h3>
+        <img class="company-logo" src="https://cdn.theorg.com/26bfac2e-f2f4-45f2-9cf3-b786257822ee_thumb.jpg" onerror="this.onerror=null;this.style.display='none';this.insertAdjacentHTML('afterend','<div class=company-logo-svg><svg viewBox=\'0 0 56 56\' xmlns=\'http://www.w3.org/2000/svg\'><rect width=\'56\' height=\'56\' rx=\'8\' fill=\'#0d9488\'/><text x=\'28\' y=\'38\' text-anchor=\'middle\' font-family=\'Arial\' font-weight=\'900\' font-size=\'28\' fill=\'white\'>B</text></svg></div>')" alt="Bravado Health logo">
+        <h3>Lead Software Quality Assurance Engineer | Bravado Health | 2021–2023</h3>
       </div>
       <ul>
         <li>Managed Quality Assurance operations for cloud based healthcare and patient management platforms</li>
@@ -187,50 +300,32 @@
         <li>Managed offshore QA coordination, sprint testing allocation, and release validation activities</li>
         <li>Maintained defect management, release traceability, and QA reporting processes using Jira and Confluence</li>
       </ul>
+      <div class="tech-tags">
+        <span class="tech-tag">Cypress</span><span class="tech-tag">Java</span><span class="tech-tag">Selenium</span><span class="tech-tag">REST API</span><span class="tech-tag">AWS</span><span class="tech-tag">BrowserStack</span><span class="tech-tag">Jira</span><span class="tech-tag">Confluence</span><span class="tech-tag">CI/CD</span>
+      </div>
     </div>
 
     <div class="job-card">
       <div class="job-head">
-        <img class="company-logo" src="https://assets.equifax.com/landers/images/EFX_header_logo.png" alt="Equifax logo">
-        <h3>Test Lead | Mindtree Ltd (Equifax)</h3>
+        <div class="company-logo-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56"><circle cx="28" cy="18" r="12" fill="#1C7F35" opacity="0.75"/><circle cx="18" cy="30" r="12" fill="#1C7F35" opacity="0.75"/><circle cx="38" cy="30" r="12" fill="#1C7F35" opacity="0.75"/><rect x="25" y="36" width="6" height="14" rx="2" fill="#1C7F35"/><text x="28" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="#1C7F35" font-weight="700">mindtree</text></svg></div>
+        <h3>Senior QA Consultant | Mindtree Ltd. | 2017–2025</h3>
       </div>
+      <p style="color:#94a3b8;margin-bottom:10px"><strong style="color:#22d3ee">Client engagements:</strong> Southwest Airlines · Delta Air Lines · Toyota Connected · Equifax · Tower Hill Insurance</p>
       <ul>
-        <li>Led Quality Assurance delivery for enterprise scale financial and credit reporting systems supporting millions of users</li>
-        <li>Reduced regression execution time through automation frameworks integrated into CI/CD pipelines</li>
+        <li>Built enterprise automation frameworks using Selenium, Playwright, Java, and REST technologies for aviation, insurance, and financial systems</li>
+        <li>Directed QA initiatives for pilot training and aviation simulation platforms; reduced manual test design effort by ~40% through AI assisted testing workflows</li>
+        <li>Led software validation for Toyota Connected vehicle platforms, covering telematics, in-vehicle infotainment systems, over-the-air (OTA) software update pipelines, and connected services APIs</li>
+        <li>Designed and executed end-to-end test strategies for connected car software including vehicle-to-cloud communication, GPS/location services, and real-time data streaming validation</li>
+        <li>Validated automotive-grade software against functional safety and reliability requirements across embedded and cloud-integrated vehicle systems</li>
+        <li>Scaled Playwright and API automation frameworks reducing regression execution time by more than 60%</li>
         <li>Expanded mobile testing coverage through Appium automation solutions</li>
-        <li>Designed automation frameworks using Selenium, Rest Assured, and Java</li>
-        <li>Improved release transparency through Allure reporting dashboards and quality metrics</li>
+        <li>Supported large scale aviation, insurance, and financial systems with CI/CD quality practices</li>
+        <li>Delivered executive level quality metrics, release readiness reporting, and risk assessments</li>
         <li>Coordinated testing activities across distributed QA teams supporting multiple enterprise releases</li>
-        <li>Managed Jira workflows, defect prioritization, release tracking, and QA documentation</li>
-        <li>Collaborated with engineering leadership and business stakeholders to improve software quality and operational efficiency</li>
       </ul>
-    </div>
-
-    <div class="job-card">
-      <div class="job-head">
-        <img class="company-logo" src="https://www.delta.com/content/dam/delta_homepage_redesign/Logo/Delta-Logo.svg" alt="Delta Air Lines logo">
-        <h3>Senior Quality Assurance Engineer | Mindtree Ltd (Delta Air Lines)</h3>
+      <div class="tech-tags">
+        <span class="tech-tag">Selenium</span><span class="tech-tag">Playwright</span><span class="tech-tag">Java</span><span class="tech-tag">Appium</span><span class="tech-tag">Jenkins</span><span class="tech-tag">GitLab CI</span><span class="tech-tag">GitHub Actions</span><span class="tech-tag">REST API</span><span class="tech-tag">CI/CD</span><span class="tech-tag">Jira</span><span class="tech-tag">Connected Vehicle</span><span class="tech-tag">OTA Testing</span><span class="tech-tag">Telematics</span>
       </div>
-      <ul>
-        <li>Designed AWS based automation architecture for enterprise airline systems and customer facing applications</li>
-        <li>Performed API testing using Postman and SoapUI combined with backend SQL validation</li>
-        <li>Expanded regression coverage through BDD automation frameworks using Cucumber and Java</li>
-        <li>Accelerated issue resolution through Jira driven defect lifecycle management</li>
-        <li>Supported enterprise integration testing initiatives across aviation systems and backend services</li>
-      </ul>
-    </div>
-
-    <div class="job-card">
-      <div class="job-head">
-        <img class="company-logo" src="https://logo.clearbit.com/northeastern.edu" alt="Northeastern University logo">
-        <h3>Quality Assurance Engineer | Northeastern University Internship</h3>
-      </div>
-      <ul>
-        <li>Selenium automation</li>
-        <li>Regression testing</li>
-        <li>Performance optimization</li>
-        <li>Quality improvements</li>
-      </ul>
     </div>
 
   </div>
@@ -242,7 +337,7 @@
   <div class="timeline">
     <div class="job-card">
       <div class="job-head">
-        <img class="company-logo" src="https://logo.clearbit.com/northeastern.edu" alt="Northeastern University">
+        <div class="company-logo-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56"><rect width="56" height="56" rx="8" fill="#CC0000"/><text x="28" y="44" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="38" fill="white">N</text></svg></div>
         <h3>Master of Science in Information Technology Project Management</h3>
       </div>
       <p>Northeastern University</p>
@@ -252,11 +347,20 @@
       <div class="job-head">
         <h3>Additional Professional Development</h3>
       </div>
-      <ul>
-        <li>Harvard University — Data Science for Business</li>
-        <li>University of Alberta — Software Product Management</li>
-        <li>HEC Paris — Leadership Specialization</li>
-      </ul>
+      <div style="margin-top:14px">
+        <div class="edu-item">
+          <svg class="edu-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><rect width="52" height="52" rx="10" fill="#A51C30"/><text x="26" y="38" text-anchor="middle" font-family="Georgia,serif" font-weight="900" font-size="30" fill="white">H</text></svg>
+          <div class="edu-text"><strong>Harvard University</strong><span>Data Science for Business</span></div>
+        </div>
+        <div class="edu-item">
+          <svg class="edu-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><rect width="52" height="52" rx="10" fill="#007C41"/><text x="26" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="30" fill="#F0C04B">A</text></svg>
+          <div class="edu-text"><strong>University of Alberta</strong><span>Software Product Management</span></div>
+        </div>
+        <div class="edu-item">
+          <svg class="edu-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><rect width="52" height="52" rx="10" fill="#002855"/><text x="26" y="30" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="14" fill="white">HEC</text><text x="26" y="44" text-anchor="middle" font-family="Arial,sans-serif" font-weight="400" font-size="10" fill="#93c5fd">Paris</text></svg>
+          <div class="edu-text"><strong>HEC Paris</strong><span>Leadership Specialization</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -275,9 +379,9 @@
     <div class="tool-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript"><span>TypeScript</span></div>
     <div class="tool-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytest/pytest-original.svg" alt="PyTest"><span>PyTest</span></div>
     <div class="tool-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman"><span>Postman</span></div>
-    <div class="tool-card"><img src="https://www.soapui.org/docs/images/soapui-icon.svg" alt="SoapUI"><span>SoapUI</span></div>
+    <div class="tool-card"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="12" fill="#3DBD3D"/><text x="32" y="47" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="44" fill="white">S</text></svg><span>SoapUI</span></div>
     <div class="tool-card"><img src="https://cdn.simpleicons.org/cucumber/23D96C" alt="Cucumber"><span>Cucumber</span></div>
-    <div class="tool-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"><span>GitHub</span></div>
+    <div class="tool-card"><img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub"><span>GitHub</span></div>
     <div class="tool-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg" alt="GitHub Actions"><span>GitHub Actions</span></div>
     <div class="tool-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins"><span>Jenkins</span></div>
     <div class="tool-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" alt="GitLab CI"><span>GitLab CI</span></div>
@@ -286,12 +390,15 @@
     <div class="tool-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" alt="Jira"><span>Jira</span></div>
     <div class="tool-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/confluence/confluence-original.svg" alt="Confluence"><span>Confluence</span></div>
     <div class="tool-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/browserstack/browserstack-original.svg" alt="BrowserStack"><span>BrowserStack</span></div>
-    <div class="tool-card"><img src="https://www.logicgate.com/wp-content/smush-webp/plt-openai-01-hero-01.png.webp" alt="OpenAI"><span>OpenAI</span></div>
-    <div class="tool-card"><img src="https://cdn.simpleicons.org/langchain/1C3C3C" alt="LangChain"><span>LangChain</span></div>
-    <div class="tool-card"><span>RAGAS</span></div>
-    <div class="tool-card"><span>MCP</span></div>
-    <div class="tool-card"><span>AI Agents</span></div>
-    <div class="tool-card"><span>LLM Evaluation</span></div>
+    <div class="tool-card"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="12" fill="#5B4CF5"/><circle cx="32" cy="28" r="14" fill="none" stroke="white" stroke-width="3"/><polyline points="24,28 29,34 41,20" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="20" y="47" width="24" height="4" rx="2" fill="white" opacity="0.65"/></svg><span>Testmo</span></div>
+    <div class="tool-card"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="12" fill="#10a37f"/><g transform="translate(32,32)" fill="white"><rect x="-4.5" y="-17" width="9" height="18" rx="4.5" transform="rotate(0)"/><rect x="-4.5" y="-17" width="9" height="18" rx="4.5" transform="rotate(60)"/><rect x="-4.5" y="-17" width="9" height="18" rx="4.5" transform="rotate(120)"/><rect x="-4.5" y="-17" width="9" height="18" rx="4.5" transform="rotate(180)"/><rect x="-4.5" y="-17" width="9" height="18" rx="4.5" transform="rotate(240)"/><rect x="-4.5" y="-17" width="9" height="18" rx="4.5" transform="rotate(300)"/><circle cx="0" cy="0" r="6.5" fill="#10a37f"/></g></svg><span>OpenAI</span></div>
+    <div class="tool-card"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="12" fill="#CC785C"/><path d="M32 11 C21 11 13 19 13 30 C13 37 16 42 22 45 L20 53 L29 48 C30 48 31 48 32 48 C43 48 51 40 51 30 C51 19 43 11 32 11 Z" fill="white" opacity="0.95"/><circle cx="24" cy="30" r="3.5" fill="#CC785C"/><circle cx="32" cy="30" r="3.5" fill="#CC785C"/><circle cx="40" cy="30" r="3.5" fill="#CC785C"/></svg><span>Claude</span></div>
+    <div class="tool-card"><img src="https://cdn.simpleicons.org/langchain/22d3ee" alt="LangChain"><span>LangChain</span></div>
+    <div class="tool-card"><img src="https://cdn.simpleicons.org/snowflake/29B5E8" alt="Snowflake"><span>Snowflake</span></div>
+    <div class="tool-card"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="12" fill="#0f1629"/><rect x="8" y="44" width="10" height="13" fill="#22d3ee" rx="2"/><rect x="21" y="34" width="10" height="23" fill="#7c3aed" rx="2"/><rect x="34" y="23" width="10" height="34" fill="#22d3ee" rx="2"/><rect x="47" y="37" width="10" height="20" fill="#7c3aed" rx="2"/><polyline points="13,40 26,30 39,19 52,33" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="13" cy="40" r="2.5" fill="#f59e0b"/><circle cx="26" cy="30" r="2.5" fill="#f59e0b"/><circle cx="39" cy="19" r="2.5" fill="#f59e0b"/><circle cx="52" cy="33" r="2.5" fill="#f59e0b"/></svg><span>RAGAS</span></div>
+    <div class="tool-card"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="12" fill="#0f1629"/><circle cx="32" cy="32" r="8" fill="#22d3ee"/><circle cx="10" cy="13" r="5" fill="none" stroke="#7c3aed" stroke-width="2.5"/><circle cx="54" cy="13" r="5" fill="none" stroke="#7c3aed" stroke-width="2.5"/><circle cx="10" cy="51" r="5" fill="none" stroke="#7c3aed" stroke-width="2.5"/><circle cx="54" cy="51" r="5" fill="none" stroke="#7c3aed" stroke-width="2.5"/><line x1="15" y1="17" x2="25" y2="26" stroke="#22d3ee" stroke-width="2"/><line x1="49" y1="17" x2="39" y2="26" stroke="#22d3ee" stroke-width="2"/><line x1="15" y1="47" x2="25" y2="38" stroke="#22d3ee" stroke-width="2"/><line x1="49" y1="47" x2="39" y2="38" stroke="#22d3ee" stroke-width="2"/></svg><span>MCP</span></div>
+    <div class="tool-card"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="12" fill="#0f1629"/><rect x="16" y="18" width="32" height="26" rx="8" fill="none" stroke="#22d3ee" stroke-width="2.5"/><circle cx="25" cy="30" r="4" fill="#22d3ee"/><circle cx="39" cy="30" r="4" fill="#22d3ee"/><line x1="25" y1="38" x2="39" y2="38" stroke="#22d3ee" stroke-width="2" stroke-linecap="round"/><line x1="32" y1="10" x2="32" y2="18" stroke="#22d3ee" stroke-width="2"/><circle cx="32" cy="8" r="3" fill="#7c3aed"/><line x1="21" y1="44" x2="15" y2="57" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/><line x1="32" y1="44" x2="32" y2="57" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/><line x1="43" y1="44" x2="49" y2="57" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/></svg><span>AI Agents</span></div>
+    <div class="tool-card"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="12" fill="#0f1629"/><rect x="12" y="13" width="40" height="44" rx="6" fill="none" stroke="#22d3ee" stroke-width="2"/><rect x="22" y="9" width="20" height="8" rx="3" fill="#22d3ee"/><polyline points="19,29 23,33 31,24" fill="none" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="34" y1="28" x2="46" y2="28" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/><polyline points="19,39 23,43 31,34" fill="none" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="34" y1="38" x2="46" y2="38" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/><polyline points="19,49 23,53 31,44" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="34" y1="48" x2="46" y2="48" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/></svg><span>LLM Evaluation</span></div>
   </div>
 </section>
 
@@ -301,18 +408,20 @@
 
   <p>I am open to QA Manager, Quality Engineering Leader, Test Automation Architect, AI Automation Lead, Healthcare Quality, and AI Validation opportunities.</p>
 
-  <p>Email: alexeymspm@gmail.com</p>
-  <p>Phone: 813-819-6803</p>
-  <p>GitHub: github.com/alexeykozlov1</p>
-  <p>LinkedIn: linkedin.com/in/alexey-k-b14779a8</p>
+  <p>Email: <a href="mailto:alexeymspm@gmail.com" style="color:#22d3ee">alexeymspm@gmail.com</a></p>
+  <p>GitHub: <a href="https://github.com/alex-g7" target="_blank" style="color:#22d3ee">github.com/alex-g7</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/alex-g-b14779a8/" target="_blank" style="color:#22d3ee">linkedin.com/in/alex-g-b14779a8</a></p>
   <p>Location: Greater Tampa Bay Area</p>
 
-  <a class="btn" href="resume.pdf" target="_blank">Download Resume</a>
+  <a class="btn" href="Alex_Grant_Resume.pdf" target="_blank">Download Resume</a>
 </section>
 
 <footer>
   © 2026 Alex Grant. Personal portfolio.
 </footer>
 
+<script>
+function imgErr(el){var t=el.alt;el.outerHTML='<span class="company-name">'+t+'</span>'}
+</script>
 </body>
 </html>
