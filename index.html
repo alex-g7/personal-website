@@ -240,7 +240,8 @@
     .tab .lav{transition:transform .3s}
     .tab[aria-selected="true"] .lav{transform:scale(1.05)}
     .tab strong{display:block;font-size:15px;line-height:1.3}
-    .tab span{display:block;font-size:12.5px;color:var(--muted)}
+    .tab span{display:block;font-size:12.5px;color:#c9d3e8;font-weight:600}
+    .tab span em{font-style:normal;font-weight:400;color:var(--muted)}
     .tab:focus-visible{outline:2px solid var(--cyan)}
     .panel{padding:34px}
     .panel[hidden]{display:none}
@@ -248,7 +249,9 @@
     .panel-head .meta{flex:1;min-width:0}
     .panel h3{font-size:23px;margin:0 0 2px}
     .panel .company{color:var(--cyan);font-weight:600;margin:0;font-size:15px}
-    .panel .dates{font-size:13px;color:var(--muted);padding:5px 12px;border:1px solid var(--border-strong);border-radius:999px;white-space:nowrap;align-self:flex-start}
+    .panel .dates{display:inline-flex;align-items:baseline;gap:8px;font-size:14px;color:var(--text);padding:6px 14px;background:rgba(91,140,255,.12);border:1px solid rgba(91,140,255,.5);border-radius:999px;white-space:nowrap;align-self:flex-start}
+    .panel .dates strong{font-weight:700;letter-spacing:.01em}
+    .panel .dates em{font-style:normal;font-size:12.5px;color:var(--muted)}
     .panel ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
     .panel li{position:relative;padding-left:28px;color:var(--muted);font-size:15.5px}
     .panel li::before{content:"";position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:5px;background:rgba(52,211,153,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.3l2.6 2.6L12 5.5' fill='none' stroke='%2334d399' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
@@ -399,7 +402,7 @@
       </ul>
     </nav>
     <div class="nav-actions">
-      <a class="btn btn-primary btn-sm" href="Alex_Grant_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a class="btn btn-primary btn-sm" href="Alex_Grant_Resume.pdf?v=20261103" target="_blank" rel="noopener">Resume</a>
       <button class="icon-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
@@ -419,7 +422,7 @@
         <p class="rotator-line mono fade-in" style="animation-delay:.32s" aria-hidden="true">&gt; <span class="rotator" id="rotator">Playwright + TypeScript</span></p>
         <p class="hero-lede fade-in" style="animation-delay:.4s">10+ years designing test automation architecture, CI/CD quality systems, API validation, and AI assisted engineering workflows across healthcare, aviation, finance, insurance, automotive, and education.</p>
         <div class="hero-cta fade-in" style="animation-delay:.5s">
-          <a class="btn btn-primary" href="Alex_Grant_Resume.pdf" target="_blank" rel="noopener">
+          <a class="btn btn-primary" href="Alex_Grant_Resume.pdf?v=20261103" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
             Download resume
           </a>
@@ -555,15 +558,15 @@
 
       <div class="exp reveal">
         <div class="tabs" role="tablist" aria-label="Roles">
-          <button class="tab" role="tab" id="t-docnow" aria-controls="p-docnow" aria-selected="true"><span class="lav"><img src="assets/logos/docnow.png" alt=""></span><div><strong>DocNow EHR</strong><span>Mar 2025 – Present</span></div></button>
-          <button class="tab" role="tab" id="t-stride" aria-controls="p-stride" aria-selected="false" tabindex="-1"><span class="lav"><img src="assets/logos/stride.svg" alt=""></span><div><strong>Stride, Inc.</strong><span>Feb 2023 – Jan 2025</span></div></button>
-          <button class="tab" role="tab" id="t-bravado" aria-controls="p-bravado" aria-selected="false" tabindex="-1"><span class="lav full"><img src="assets/logos/bravado.svg" alt=""></span><div><strong>Bravado Health</strong><span>Oct 2021 – Feb 2023</span></div></button>
-          <button class="tab" role="tab" id="t-mindtree" aria-controls="p-mindtree" aria-selected="false" tabindex="-1"><span class="lav"><img src="assets/logos/mindtree-mark.svg" alt=""></span><div><strong>Mindtree</strong><span>Oct 2017 – Sep 2021</span></div></button>
+          <button class="tab" role="tab" id="t-docnow" aria-controls="p-docnow" aria-selected="true"><span class="lav"><img src="assets/logos/docnow.png" alt=""></span><div><strong>DocNow EHR</strong><span>Mar 2025 – Present · <em data-since="24302">1 yr 9 mos</em></span></div></button>
+          <button class="tab" role="tab" id="t-stride" aria-controls="p-stride" aria-selected="false" tabindex="-1"><span class="lav"><img src="assets/logos/stride.svg" alt=""></span><div><strong>Stride, Inc.</strong><span>Feb 2023 – Jan 2025 · <em>2 yrs</em></span></div></button>
+          <button class="tab" role="tab" id="t-bravado" aria-controls="p-bravado" aria-selected="false" tabindex="-1"><span class="lav full"><img src="assets/logos/bravado.svg" alt=""></span><div><strong>Bravado Health</strong><span>Oct 2021 – Feb 2023 · <em>1 yr 5 mos</em></span></div></button>
+          <button class="tab" role="tab" id="t-mindtree" aria-controls="p-mindtree" aria-selected="false" tabindex="-1"><span class="lav"><img src="assets/logos/mindtree-mark.svg" alt=""></span><div><strong>Mindtree</strong><span>Oct 2017 – Sep 2021 · <em>4 yrs</em></span></div></button>
         </div>
 
         <div>
           <article class="card panel" role="tabpanel" id="p-docnow" aria-labelledby="t-docnow">
-            <div class="panel-head"><span class="lav lg"><img src="assets/logos/docnow.png" alt="DocNow EHR"></span><div class="meta"><h3>Staff SDET &amp; AI Quality Engineer</h3><p class="company">DocNow EHR · Healthcare technology</p></div><span class="dates">Mar 2025 – Present</span></div>
+            <div class="panel-head"><span class="lav lg"><img src="assets/logos/docnow.png" alt="DocNow EHR"></span><div class="meta"><h3>Staff SDET &amp; AI Quality Engineer</h3><p class="company">DocNow EHR · Healthcare technology</p></div><span class="dates"><strong>Mar 2025 – Present</strong><em data-since="24302">1 yr 9 mos</em></span></div>
             <ul>
               <li>Define quality engineering strategy and technical direction for automation across a post acute EHR platform serving long term care and healthcare organizations.</li>
               <li>Design scalable Playwright, TypeScript, and JavaScript test infrastructure covering UI, API, integration, database, and end to end validation across critical clinical workflows.</li>
@@ -580,7 +583,7 @@
           </article>
 
           <article class="card panel" role="tabpanel" id="p-stride" aria-labelledby="t-stride" hidden>
-            <div class="panel-head"><span class="lav lg"><img src="assets/logos/stride.svg" alt="Stride, Inc."></span><div class="meta"><h3>Principal SDET</h3><p class="company">Stride, Inc. · Education technology</p></div><span class="dates">Feb 2023 – Jan 2025</span></div>
+            <div class="panel-head"><span class="lav lg"><img src="assets/logos/stride.svg" alt="Stride, Inc."></span><div class="meta"><h3>Principal SDET</h3><p class="company">Stride, Inc. · Education technology</p></div><span class="dates"><strong>Feb 2023 – Jan 2025</strong><em>2 yrs</em></span></div>
             <ul>
               <li>Provided technical direction for test automation architecture across enterprise digital education platforms operating at significant scale.</li>
               <li>Designed and evolved scalable Playwright and TypeScript automation frameworks covering UI, API, integration, and end to end testing.</li>
@@ -595,7 +598,7 @@
           </article>
 
           <article class="card panel" role="tabpanel" id="p-bravado" aria-labelledby="t-bravado" hidden>
-            <div class="panel-head"><span class="lav lg full"><img src="assets/logos/bravado.svg" alt="Bravado Health"></span><div class="meta"><h3>Lead QA Automation Engineer</h3><p class="company">Bravado Health · Regulated healthcare software</p></div><span class="dates">Oct 2021 – Feb 2023</span></div>
+            <div class="panel-head"><span class="lav lg full"><img src="assets/logos/bravado.svg" alt="Bravado Health"></span><div class="meta"><h3>Lead QA Automation Engineer</h3><p class="company">Bravado Health · Regulated healthcare software</p></div><span class="dates"><strong>Oct 2021 – Feb 2023</strong><em>1 yr 5 mos</em></span></div>
             <ul>
               <li>Led automation engineering for healthcare applications supporting ePrescribing, clinical workflows, APIs, and patient facing services.</li>
               <li>Designed cloud based automation architecture covering UI, API, database, integration, and end to end validation.</li>
@@ -610,7 +613,7 @@
           </article>
 
           <article class="card panel" role="tabpanel" id="p-mindtree" aria-labelledby="t-mindtree" hidden>
-            <div class="panel-head"><span class="lav lg"><img src="assets/logos/mindtree-mark.svg" alt="Mindtree"></span><div class="meta"><h3>Senior Quality Assurance Consultant</h3><p class="company">Mindtree · Enterprise consulting</p></div><span class="dates">Oct 2017 – Sep 2021</span></div>
+            <div class="panel-head"><span class="lav lg"><img src="assets/logos/mindtree-mark.svg" alt="Mindtree"></span><div class="meta"><h3>Senior Quality Assurance Consultant</h3><p class="company">Mindtree · Enterprise consulting</p></div><span class="dates"><strong>Oct 2017 – Sep 2021</strong><em>4 yrs</em></span></div>
             <div class="clients" aria-label="Clients">
               <div class="client"><img src="assets/logos/southwest.svg" alt="Southwest Airlines"></div>
               <div class="client"><img src="assets/logos/delta.svg" alt="Delta Air Lines"></div>
@@ -739,7 +742,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
             <span>Copy alexeymspm@gmail.com</span>
           </button>
-          <a class="btn btn-ghost" href="Alex_Grant_Resume.pdf" target="_blank" rel="noopener">View resume</a>
+          <a class="btn btn-ghost" href="Alex_Grant_Resume.pdf?v=20261103" target="_blank" rel="noopener">View resume</a>
         </div>
         <div class="contact-links">
           <a href="https://www.linkedin.com/in/alex-grant-b14779a8/" target="_blank" rel="noopener">LinkedIn ↗</a>
@@ -950,6 +953,17 @@
       if (n){ e.preventDefault(); select(n, true); }
     });
   });
+
+  /* ---------- Live duration for the current role ---------- */
+  (function(){
+    var n = new Date(), cur = n.getFullYear() * 12 + n.getMonth();
+    document.querySelectorAll("[data-since]").forEach(function(el){
+      var m = cur - parseInt(el.getAttribute("data-since"), 10) + 1, y = Math.floor(m / 12), r = m % 12, parts = [];
+      if (y) parts.push(y + (y > 1 ? " yrs" : " yr"));
+      if (r) parts.push(r + (r > 1 ? " mos" : " mo"));
+      if (parts.length) el.textContent = parts.join(" ");
+    });
+  })();
 
   /* ---------- Tool filters ---------- */
   var filters = document.querySelectorAll('.filter'), tools = document.querySelectorAll('.tool');
